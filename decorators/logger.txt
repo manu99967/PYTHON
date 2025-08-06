@@ -1,0 +1,5 @@
+Awesome work 
+Hello Malta 
+function:counter time taken 13.04741096496582 
+function:sum time taken 2.288818359375e-05 seconds 
+function:counter time taken 0.08058881759643555 seconds 

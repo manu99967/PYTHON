@@ -1,26 +1,29 @@
-# how long function get executed
+#path
+
 import time
 
-def time_fn(fn):
+
+def logger(func):
     def wrapper(*args,**kwargs):
         start_time=time.time()
-        fn(*args,**kwargs) # will run
+        func(*args,**kwargs) # will run
         end_time=time.time()
         diff=end_time-start_time
-        print("Time taken to run",diff)
+        txt=f"function:{func.__name__} time taken {diff} seconds"
+        f_name="logger.txt"
+        write_file(f_name=f_name,txt=txt)
     return wrapper
 
-@time_fn
+def write_file(f_name,txt):
+    with open(f_name,'a') as file:
+        file.write(f"{txt} \n")
+        
+@logger
 def counter():
     for n in range(0,10000000):
         print(n)
-
-@time_fn
-def counter2():
-    for n in range(0,10000):
-        print(n)
-
-@time_fn
+       
+@logger
 def sum(*args):
     ans=0
     for n in args:
@@ -30,5 +33,3 @@ def sum(*args):
     
     print("Ans is ",ans)
     return ans
-
-sum(1,2,3,1000)

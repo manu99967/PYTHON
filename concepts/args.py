@@ -15,6 +15,7 @@ def  greet(*args):
     for arg in args:
         print("Name is",arg)
         
+
 def sum(*args):
     ans=0
     for n in args:
