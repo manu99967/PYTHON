@@ -1,15 +1,4 @@
-#initializer:constructor
 
-#Special method in a class
-#initializer: method is called whenever the blueprint is used
-#To create an object
-#method function is inside a class
-
-#method your create you have to have the self: keyword
-
-#how to create a class <-->What a class is
-# initialiZer <constructor>
-# self key what it is :<this>
 
 from datetime import datetime
 
@@ -17,9 +6,14 @@ def write_file(f_name,txt):
     with open(f_name,'a') as file:
         file.write(f"{txt} \n")
        
-
+#static<Not changing>
+#static property:<Class itself> -> 
 class Human():
 
+    species="H.sapiens"
+    genus="Homo"
+    count=0
+    
     def __init__(self,gender,name):
         print("The initializer was called")
         self._gender=gender
@@ -30,7 +24,9 @@ class Human():
         else :
           self._ribs=23
           self._curse="Pain"
-
+        #Human.count=Human.count+1
+        self.__class__.count=self.__class__.count+1
+    
     @property
     def name(self):
         now = datetime.now()
@@ -62,24 +58,40 @@ class Human():
 
 # adam=Human(name="adam",gender="Male") #object from a class
 adam=Human(name="adam",gender="Male")
+eve=Human(name="eve",gender="Female")
 
-#Getter a property of: <name>:
-#print(adam.name)
+print("adam species",adam.species)
+print("eve species",eve.species)
+print("class property",Human.species)
 
-adam.name=234
+print("Total humans",Human.count)
+class HumanStatic(Human):
+    """This class is used to demonstrate static properties and methods."""
+    
+    @classmethod
+    def print_species(cls):
+        """Prints the species and genus of the class."""
+        print("Species:", cls.species)
+        print("Genus:", cls.genus)
+        print("Total count:", cls.count)
+# Using the static method to print species and genus
 
-adam.print_self()
+class shape ():
+    def __init__(self,name):
+        self.name=name
+        def describe(self):
+            print(f"This is a shape named {self.name}.")
 
-# print(adam.name)
-# print(adam.name)
-# #log when somebody
 
-# #set is to update
+            class rectangle(shape):
+                def __init__(self, width, height):
+                    super().__init__("Rectangle")
+                    self.width = width
+                    self.height = height
 
-# adam.name="Joseph"
-
-# # @property
-
-# adam.name="Adam"
-
-# adam.name="Samson"
+               
+            r1 = rectangle(5, 10)
+            r1.describe()
+            
+            
+    
