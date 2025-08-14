@@ -1,0 +1,1 @@
+DROP TABLE fggfdg,vbcbcvb,student,parent; -- Drop the tables created in the previous snippets
