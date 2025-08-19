@@ -1,4 +1,4 @@
-CREATE TABLE students (
+CREATE TABLE student (
     id SERIAL PRIMARY KEY
 );
 

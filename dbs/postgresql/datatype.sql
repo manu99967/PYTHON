@@ -13,6 +13,6 @@ CREATE TABLE IF NOT EXISTS student(
 );
 
 INSERT INTO student (name,email,dob,phone,marks)
-VALUES ('alice','alice@gmail.com','Hellow eorld',254732323,88.2);
+VALUES ('alice','alice@gmail.com',254732323,88.2);
 
 -- SELECT * FROM student
